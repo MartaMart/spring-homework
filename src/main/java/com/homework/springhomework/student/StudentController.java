@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 class StudentController {
 
-    public final StudentService studentService;
+    private final StudentService studentService;
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
             MediaType.APPLICATION_JSON_VALUE)
