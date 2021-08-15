@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 
 @Slf4j
 @ControllerAdvice
-public class ExceptionHelper {
+public class StudentExceptionHandler {
 
     @ExceptionHandler(value = {StudentNotFoundException.class})
     public ResponseEntity<Object> handleStudentNotFoundException(StudentNotFoundException e){
