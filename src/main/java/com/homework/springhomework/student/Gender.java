@@ -1,12 +1,12 @@
-package com.homework.springhomework.models.student;
-
+package com.homework.springhomework.student;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.homework.springhomework.exceptions.GenderNotFoundException;
 
 import java.util.stream.Stream;
 
-public enum Gender {
+enum Gender {
 
     MALE("m"), FEMALE("w");
 
@@ -18,7 +18,7 @@ public enum Gender {
 
     @JsonCreator
     public static Gender getGenderFromValue(final String value) {
-        return Stream.of(Gender.values()).filter(e -> e.value.equalsIgnoreCase(value)).findFirst().orElse(null);
+        return Stream.of(Gender.values()).filter(gender -> gender.value.equalsIgnoreCase(value)).findFirst().orElseThrow(GenderNotFoundException::new);
     }
 
     @JsonValue
